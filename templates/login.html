@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SynapseOS</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="bg-circle one"></div>
+    <div class="bg-circle two"></div>
+
+    <!-- Brand Area -->
+    
+
+    <!-- Login Card -->
+    <div class="auth-box">
+         <img src="{{ url_for('static', filename='logo.png') }}" alt="SynapseOS Logo" class = "auth-logo">
+
+        <h2 class = "brand-title">
+            SynapseOS
+        </h2>
+
+        <p class ="brand-title">
+            •Design • Architect • Intelligent Systems
+        </p>
+        <div class="auth-badge">
+            Autonomous AI Engineering Platform
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p>
+            Login to continue to SynapseOS
+        </p>
+
+        <form method="POST">
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p class="link-text">
+            New to SynapseOS?
+
+            <a href="{{ url_for('register') }}">
+                Create account
+            </a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser title -->
+    <title>SynapseOS</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    </head>
+
+<body>
+    <nav class="navbar">
+
+  <div class="nav-left">
+    <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        alt="SynapseOS Logo"
+        class="nav-logo"
+    >
+</div>
+
+    <div class="nav-links">
+
+    <a href="#">Dashboard</a>
+
+    <a href="#">AI Copilot</a>
+
+    <a href="#">Agents</a>
+
+    <a href="#">Docs</a>
+
+</div>
+
+    <div class="nav-right">
+
+        <button class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+    <!-- Background glow effects -->
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+
+    <!-- Main container -->
+    <div class="container">
+
+        <!-- Top logo -->
+        <header class="top-logo">
+
+            <!-- SynapseOS logo image -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="SynapseOS Logo">
+
+        </header>
+
+        <!-- Hero section -->
+        <section class="hero-section">
+
+            <!-- Left side content -->
+            <div class="hero-left">
+
+                <!-- Top badge -->
+                <div class="badge">
+                    Autonomous Multi-Agent AI Engineering System
+                </div>
+
+                <!-- Main heading -->
+                <h1>
+                    Design intelligent software systems with your
+                    <span>Synapse Architect Engine</span>
+                </h1>
+
+                <!-- Hero description -->
+                <p>
+                    SynapseOS transforms software ideas into structured engineering
+                    blueprints using intelligent AI architecture planning, modular
+                    workflows, and scalable system design.
+                </p>
+
+                <!-- Feature chips -->
+                <div class="chips">
+
+                    <div class="chip">
+                        ⚛ Architecture Planning
+                    </div>
+
+                    <div class="chip">
+                        ▣ System Design
+                    </div>
+
+                    <div class="chip">
+                        ⚙ AI Engineering
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right side visual -->
+            <div class="hero-right">
+
+                <!-- Visual card -->
+                <div class="visual-card">
+
+                    <!-- Orbit animation circle -->
+                    <div class="orbit"></div>
+
+                    <!-- Logo inside visual card -->
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="SynapseOS Symbol">
+
+                    <!-- Card title -->
+                    <h2>
+                        Neural Engineering Core
+                    </h2>
+
+                    <!-- Card subtitle -->
+                    <p>
+                        Architect • Generate • Optimize • Evolve
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Workspace section -->
+        <section class="workspace">
+
+            <!-- Input card -->
+            <div class="card">
+
+                <!-- Input title -->
+                <h3>
+                    ✎ Describe Your Software Idea
+                </h3>
+
+                <!-- Input description -->
+                <p class="card-text">
+                    Enter any software concept and SynapseOS will generate
+                    a professional engineering blueprint.
+                </p>
+
+                <!-- Textarea -->
+                <textarea
+                    id="projectIdea"
+                    placeholder="Example: Build a hospital management system with authentication, appointments, billing, reports, doctors, admin dashboard, and analytics..."
+                ></textarea>
+
+                <!-- Generate button -->
+                <!-- onclick calls JavaScript function -->
+                <!-- Button group -->
+<div class="button-group">
+
+    <!-- Generate blueprint button -->
+    <button onclick="generateBlueprint()" id="generateBtn">
+        ✨ Generate Blueprint
+    </button>
+
+    <!-- Clear output button -->
+    <button onclick="clearOutput()" class="secondary-btn">
+        🧹 Clear
+    </button>
+
+    <!-- Copy blueprint button -->
+    <button onclick="copyBlueprint()" class="secondary-btn">
+        📋 Copy
+    </button>
+    <button onclick="downloadPDF()" class="secondary-btn">
+    📄 Download PDF
+</button>
+
+</div>
+
+<!-- Helper text -->
+<div class="helper">
+    Intelligent AI architecture generation system
+</div>
+            </div>
+
+            <!-- Output card -->
+            <div class="card">
+
+                <!-- Output title -->
+                <h3>
+                    ▤ Generated Engineering Blueprint
+                </h3>
+
+                <!-- Output description -->
+                <p class="card-text">
+                    Your AI-generated architecture and engineering plan
+                    will appear here.
+                </p>
+
+                <!-- Output area -->
+                <div class="empty-box" id="outputBox">
+
+                    <!-- Empty icon -->
+                    <div class="empty-icon">
+
+                        ✦
+
+                    </div>
+
+                    <!-- Empty heading -->
+                    <h4>
+
+                        No blueprint generated yet
+
+                    </h4>
+
+                    <!-- Empty description -->
+                    <p>
+
+                        Enter your software idea and generate an
+                        intelligent system blueprint.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+    <!-- Recent blueprints history section -->
+<section class="history-section">
+
+    <!-- History header -->
+    <div class="history-header">
+
+        <!-- History title -->
+        <h3>Recent Blueprints</h3>
+
+        <!-- Clear history button -->
+        <button class="history-clear-btn" onclick="clearHistory()">
+            Clear History
+        </button>
+
+    </div>
+
+    <!-- History list -->
+    <div id="historyList" class="history-list">
+
+        <!-- History items will appear here using JavaScript -->
+
+    </div>
+
+</section>
+    </div>
+
+    <!-- Connect JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<section class="assistant-section">
+
+    <div class="assistant-header">
+        <h3>SynapseOS AI Copilot Assistant</h3>
+        <p>Ask questions about architecture, deployment, database, APIs, AI features, or project improvement.</p>
+    </div>
+
+    <div id="chatBox" class="chat-box">
+        <div class="assistant-message">
+            Hello! I am your SynapseOS AI Copilot. Ask me how to improve or build your project.
+        </div>
+    </div>
+
+    <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Ask: How can I improve scalability?">
+        <button onclick="askAssistant()">Ask</button>
+    </div>
+
+</section>
+</body>
+
+</html>
